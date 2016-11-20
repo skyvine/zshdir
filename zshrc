@@ -1,3 +1,7 @@
+if [ ! -n $ZSHDIR ]; then
+  export ZSHDIR="TODO: Enter the location of this repository here!"
+fi
+
 export EDITOR="vim"
 bindkey -v
 export KEYTIMEOUT=1
