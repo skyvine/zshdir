@@ -1,0 +1,1 @@
+This directory contains all of my extensions for zsh. To use it, first set the ZSHDIR environment variable to be the location of this repository, then source this repo's zshrc file in your init file.
