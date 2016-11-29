@@ -7,7 +7,7 @@ fi
 export EDITOR="vim"
 
 # enable vimlike keybindings
-bindkey -v
+plugins=(vi-mode)
 
 # lower the delay for mutliple key presses
 export KEYTIMEOUT=1
