@@ -4,10 +4,10 @@ if [ ! -n $ZSHDIR ]; then
 fi
 
 # vim is the best
-export EDITOR="vim"
+export EDITOR="nvim"
 
 # enable vimlike keybindings
-plugins=(vi-mode)
+bindkey -v
 
 # lower the delay for mutliple key presses
 export KEYTIMEOUT=1
