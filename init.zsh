@@ -1,19 +1,21 @@
 # make sure the location of the extensions is known
 if [ ! -n $ZSHDIR ]; then
-  export ZSHDIR="TODO: Enter the location of this repository here!"
+  echo "Must define the ZSHDIR environment variable! This variable should list the directory where your oh-my-zsh and zsh-syntax-highlighting clones reside."
+  exit
 fi
 
 # neovim is the best
 export EDITOR="nvim"
 
-# enable vimlike keybindings
-bindkey -v
+plugin=(vi-mode)
 
 # lower the delay for mutliple key presses
 export KEYTIMEOUT=1
 
-# make sure that oh-my-zsh knows where we are
+# set oh-my-zsh variables
 export ZSH=$ZSHDIR/oh-my-zsh
+export ZSH_CUSTOM=$ZSHDIR/custom
+export ZSH_THEME="nanotech"
 
 # load awesome extensions
 source $ZSHDIR/oh-my-zsh/templates/zshrc.zsh-template
@@ -25,9 +27,12 @@ alias sudo='sudo '
 # make tmux use 256 colors
 alias tmux='tmux -2'
 
-# make it so tmxu is accessible even without 256 color support
+# make it so tmux is accessible even without 256 color support
 alias tmux-8color='tmux'
 
 export CFLAGS="-Wall -Wextra"
 export CXXFLAGS="-Wall -Wextra"
+
+# enable vimlike keybindings
+bindkey -v
 
