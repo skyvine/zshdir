@@ -15,7 +15,7 @@ export KEYTIMEOUT=1
 # set oh-my-zsh variables
 export ZSH=$ZSHDIR/oh-my-zsh
 export ZSH_CUSTOM=$ZSHDIR/custom
-export ZSH_THEME="nanotech"
+export ZSH_THEME="saffronsnail"
 
 # load awesome extensions
 source $ZSHDIR/oh-my-zsh/templates/zshrc.zsh-template
@@ -35,4 +35,15 @@ export CXXFLAGS="-Wall -Wextra"
 
 # enable vimlike keybindings
 bindkey -v
+
+# search history when using arrows
+autoload -U up-line-or-beginning-search
+autoload -U down-line-or-beginning-search
+
+[[ -n "${key[Up]}" ]] && bindkey "${key[Up]}" up-line-or-beginning-search
+[[ -n "${key[Down]}" ]] && bindkey "${key[Down]}" down-line-or-beginning-search
+
+# advertise 256 color if we have it
+[[ $COLORTERM = gnome-terminal && ! $TERM = screen-256color ]] && TERM=xterm-256color
+export TERM
 
