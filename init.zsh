@@ -7,7 +7,7 @@ fi
 # neovim is the best
 export EDITOR="nvim"
 
-plugin=(vi-mode)
+plugin=(git vi-mode)
 
 # lower the delay for mutliple key presses
 export KEYTIMEOUT=1
@@ -18,20 +18,8 @@ export ZSH_CUSTOM=$ZSHDIR/custom
 export ZSH_THEME="saffronsnail"
 
 # load awesome extensions
-source $ZSHDIR/oh-my-zsh/templates/zshrc.zsh-template
+source $ZSH/oh-my-zsh.sh
 source $ZSHDIR/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
-# this allows aliases to be available under sudo
-alias sudo='sudo '
-
-# make tmux use 256 colors
-alias tmux='tmux -2'
-
-# make it so tmux is accessible even without 256 color support
-alias tmux-8color='tmux'
-
-export CFLAGS="-Wall -Wextra"
-export CXXFLAGS="-Wall -Wextra"
 
 # enable vimlike keybindings
 bindkey -v
@@ -46,4 +34,6 @@ autoload -U down-line-or-beginning-search
 # advertise 256 color if we have it
 [[ $COLORTERM = gnome-terminal && ! $TERM = screen-256color ]] && TERM=xterm-256color
 export TERM
+
+export NIX_PATH="saffpkgs=/usr/pkgs:$NIX_PATH"
 
