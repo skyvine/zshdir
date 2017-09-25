@@ -4,36 +4,25 @@ if [ ! -n $ZSHDIR ]; then
   exit
 fi
 
-# neovim is the best
-export EDITOR="nvim"
+plugin=(
+        # give info when it's relevant
+        git
 
-plugin=(git vi-mode)
+        # vi-like editing of the command line
+        vi-mode
 
-# lower the delay for mutliple key presses
-export KEYTIMEOUT=1
+        # search my history based on what I've typed when pressing up or down arrows
+        zsh-history-substring-search
+       )
 
-# set oh-my-zsh variables
-export ZSH=$ZSHDIR/oh-my-zsh
-export ZSH_CUSTOM=$ZSHDIR/custom
-export ZSH_THEME="saffronsnail"
+zle -N history-substring-search-up
+zle -N history-substring-search-down
+bindkey "^[[A" history-substring-search-up
+bindkey "^[[B" history-substring-search-down
+bindkey -M vicmd "k" history-substring-search-up
+bindkey -M vicmd "j" history-substring-search-down
 
 # load awesome extensions
 source $ZSH/oh-my-zsh.sh
 source $ZSHDIR/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
-# enable vimlike keybindings
-bindkey -v
-
-# search history when using arrows
-autoload -U up-line-or-beginning-search
-autoload -U down-line-or-beginning-search
-
-[[ -n "${key[Up]}" ]] && bindkey "${key[Up]}" up-line-or-beginning-search
-[[ -n "${key[Down]}" ]] && bindkey "${key[Down]}" down-line-or-beginning-search
-
-# advertise 256 color if we have it
-[[ $COLORTERM = gnome-terminal && ! $TERM = screen-256color ]] && TERM=xterm-256color
-export TERM
-
-export NIX_PATH="saffpkgs=/usr/pkgs:$NIX_PATH"
 
