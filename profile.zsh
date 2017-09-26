@@ -1,3 +1,4 @@
+export PATH="$HOME/projects/seal-directory:$PATH"
 # advertise 256 color if we have it
 [[ $COLORTERM = gnome-terminal && ! $TERM = screen-256color ]] && export TERM=xterm-256color
 
@@ -17,3 +18,4 @@ export ZSH_THEME="saffronsnail"
 
 # get rid of annoying GUI prompts that distros like to set by default
 export SSH_ASKPASS=
+
