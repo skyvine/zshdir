@@ -1,8 +1,6 @@
-export PATH="$HOME/projects/seal-directory:$PATH"
+export PATH="$HOME/storage/projects/seal-directory:$PATH"
 # advertise 256 color if we have it
 [[ $COLORTERM = gnome-terminal && ! $TERM = screen-256color ]] && export TERM=xterm-256color
-
-export NIX_PATH="saffpkgs=/usr/pkgs:$NIX_PATH"
 
 # neovim is the best
 export EDITOR="nvim"
