@@ -1,7 +1,11 @@
-# make sure the location of the extensions is known
-if [ ! -n $ZSHDIR ]; then
-  echo "Must define the ZSHDIR environment variable! This variable should list the directory where your oh-my-zsh and zsh-syntax-highlighting clones reside."
-  exit
+# set oh-my-zsh variables
+export ZSHDIR=$(realpath $(dirname $0))
+export ZSH=$ZSHDIR/oh-my-zsh
+export ZSH_CUSTOM=$ZSHDIR/custom
+export ZSH_THEME="saffronsnail"
+
+if [ -n LOADED_PERSONAL_PROFILE_DOT_ZSH ]; then
+  source $ZSHDIR/profile.zsh
 fi
 
 plugin=(
@@ -13,7 +17,10 @@ plugin=(
 
         # search my history based on what I've typed when pressing up or down arrows
         zsh-history-substring-search
+        zsh-syntax-highlighting
        )
+
+source $ZSH/oh-my-zsh.sh
 
 zle -N history-substring-search-up
 zle -N history-substring-search-down
